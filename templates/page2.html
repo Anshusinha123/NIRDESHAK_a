@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Nirdeshak AI - Page 2</title> 
+  <style> 
+    body { 
+      background: url('{{ url_for('static', filename='images/background3.gif') }}') no-repeat center center fixed; 
+      background-size: cover; 
+      font-family: Arial, sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      margin: 0; 
+    } 
+ 
+    .screen { 
+      text-align: center; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      flex-direction: column; 
+      width: 100%; 
+      height: 100%; 
+      backdrop-filter: brightness(0.9); /* Optional: makes content more visible over gif */ 
+    } 
+ 
+    .logo { 
+      width: 100px; 
+      height: 100px; 
+      object-fit: contain; 
+    } 
+ 
+    .start-button { 
+      padding: 15px 30px; 
+      font-size: 20px; 
+      color: #fff; 
+      background-color: #007bff; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      margin-top: 20px; 
+      display: inline-block; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    } 
+ 
+    .start-button:hover { 
+      background-color: #0056b3; 
+    } 
+ 
+    .name { 
+      font-size: 28px; 
+      color: #fff; 
+      margin-top: 20px; 
+      font-weight: bold; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+    } 
+  </style> 
+</head> 
+<body> 
+ 
+  <!-- Main Screen --> 
+  <div class="screen"> 
+    <img src="{{ url_for('static', filename='images/logo2.jpg') }}" alt="Logo2" class="logo"> 
+    <h2 class="name" id="languageText">NIRDESHAK</h2> 
+    <button class="start-button" onclick="start()">Start</button> 
+  </div> 
+ 
+  <script> 
+    // Language switcher 
+    const languages = [ 
+      "NIRDESHAK", 
+      "निर्देशक", 
+      "নির্দেশক", 
+      "நிர್ದೇಶகன்", 
+      "నిర్దేశకుడు", 
+      "ನಿರ್ದೇಶಕ", 
+      "નિર્દેશક", 
+      "ਨਿਰਦੇਸ਼ਕ" 
+    ]; 
+ 
+    let index = 0; 
+    setInterval(() => { 
+      document.getElementById("languageText").textContent = languages[index]; 
+      index = (index + 1) % languages.length; 
+    }, 2000); 
+ 
+    // Redirect to page3.html 
+    function start() { 
+      window.location.href = "{{ url_for('page3') }}"; 
+    } 
+  </script> 
+ 
+</body> 
+</html>

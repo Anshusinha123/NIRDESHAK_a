@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Recommendation</title>
+</head>
+<body>
+    <h2>Get Career Suggestions</h2>
+    <form method="POST">
+        <label for="profile">Enter your interests/skills:</label><br>
+        <input type="text" id="profile" name="profile" required>
+        <button type="button" onclick="startListening()">🎤 Speak</button><br><br>
+        <button type="submit">Get Suggestions</button>
+    </form>
+
+    {% if result %}
+        <h3>Suggestions:</h3>
+        <p id="ai_result">{{ result }}</p>
+        <button onclick="speakResponse()">🔊 Listen</button>
+    {% endif %}
+
+    <a href="/">🔙 Back to Home</a>
+
+    <script>
+        function startListening() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+            recognition.onresult = function(event) {
+                document.getElementById('profile').value = event.results[0][0].transcript;
+            };
+        }
+
+        function speakResponse() {
+            const text = document.getElementById('ai_result').innerText;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>

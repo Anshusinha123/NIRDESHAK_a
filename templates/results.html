@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Assistant - Results</title>
+</head>
+<body>
+    <h2>AI Assistant Response</h2>
+    <p><strong>You asked:</strong> {{ user_input }}</p>
+    <p><strong>AI says:</strong> <span id="ai_response">{{ response }}</span></p>
+
+    <button onclick="speakResponse()">🔊 Listen</button><br><br>
+    <a href="/">🔙 Ask Another Question</a>
+
+    <script>
+        function speakResponse() {
+            const text = document.getElementById('ai_response').innerText;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>

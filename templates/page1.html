@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nirdeshak AI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+    }
+    .logo-screen {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+    .logo-screen img {
+      width: 50%; /* Adjust size of logo */
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Logo -->
+  <div class="logo-screen" id="logoScreen">
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo">
+  </div>
+
+  <script>
+    // After 5 seconds, directly go to page2.html
+    setTimeout(function() {
+      //window.location.href = "page2.html";
+      window.location.href = "{{ url_for('page2') }}"; // Redirect to page2.html
+    }, 5000);
+  </script>
+
+</body>
+</html>

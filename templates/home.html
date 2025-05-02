@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Nirdeshak AI Assistant</title>
+</head>
+<body>
+    <h1>Welcome to Nirdeshak AI Assistant</h1>
+
+    <!-- AI Chat Form with Voice Input -->
+    <form action="/ai" method="POST">
+        <label for="user_input">Ask the AI:</label><br>
+        <input type="text" id="user_input" name="user_input" placeholder="Type your question..." required>
+        <button type="button" onclick="startListening()">🎤 Speak</button>
+        <button type="submit">Ask</button>
+    </form>
+
+    <hr>
+
+    <!-- Navigation Links -->
+    <ul>
+        <li><a href="/recommend">Career Recommendations</a></li>
+        <li><a href="/mood">Mood Booster</a></li>
+        <li><a href="/recipe">Recipe Suggestions</a></li>
+        <li><a href="/email">Email Classification</a></li>
+    </ul>
+
+    <!-- Voice Input Script -->
+    <script>
+        function startListening() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                document.getElementById('user_input').value = event.results[0][0].transcript;
+            };
+
+            recognition.onerror = function(event) {
+                alert("Speech recognition error: " + event.error);
+            };
+        }
+    </script>
+</body>
+</html>
