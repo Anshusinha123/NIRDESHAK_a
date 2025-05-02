@@ -13,15 +13,11 @@ Centralized command interface for agent communication
 Logging and monitoring for agent activities
 
 Modules / Agents:
-Chat Agent: Natural language interaction with users
+Career Agent: Provides career advice, resume tips, and professional development insights
 
-Vision Agent: Image classification and processing tasks
+Mood Enhancement Agent: Offers motivational quotes, mindfulness exercises, and positive reinforcement
 
-Data Agent: Data analysis, visualization, and insights
-
-Task Orchestrator: Manages workflows across agents
-
-External API Agent (optional): Connects with external APIs for enriched data
+Cooking Agent: Recommends recipes, meal plans, and cooking tips based on user preferences
 
 Tech Stack:
 Python (main programming language)
